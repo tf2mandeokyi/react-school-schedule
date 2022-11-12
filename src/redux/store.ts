@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { darkLightSlice } from './darkLightSlice'
-import { hourMinuteSlice } from './hourMinuteSlice';
+import { dateSlice } from './dateSlice';
 import { scheduleSlice } from './scheduleSlice'
 import { selectorSlice } from './selectorSlice';
 
@@ -9,7 +9,7 @@ export const store = configureStore({
         scheduleData: scheduleSlice.reducer,
         darkLightMode: darkLightSlice.reducer,
         selectorPosition: selectorSlice.reducer,
-        currentHourMinute: hourMinuteSlice.reducer
+        dateSlice: dateSlice.reducer
     }
 })
 

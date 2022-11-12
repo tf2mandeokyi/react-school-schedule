@@ -6,17 +6,17 @@
     visibility: hidden;
     text-align: right;
     position: absolute;
-    color: inherit;
+    color: white;
     bottom: 100%;
     right: 0;
     margin-right: 10px;
     margin-bottom: 5px;
-    background: rgb(0, 0, 0, 0.3);
+    background: rgb(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 5px;
 }
 
-.dark-light-switcher:hover .dark-light-tooltiptext {
+.dark-light-switcher i.fas:hover .dark-light-tooltiptext {
     visibility: visible;
 }
 

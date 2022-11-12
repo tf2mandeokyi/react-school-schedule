@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import LoadingScreen from './screens/LoadingScreen';
-import MainScreen from './screens/MainScreen';
-import ErrorScreen from './screens/ErrorScreen';
-import { apply } from '../redux/scheduleSlice';
-import { useAppDispatch } from '../redux/hooks';
-import { ScheduleData } from '../util/types';
+import LoadingScreen from './components/screens/LoadingScreen';
+import MainScreen from './components/screens/MainScreen';
+import ErrorScreen from './components/screens/ErrorScreen';
+import { apply } from './redux/scheduleSlice';
+import { useAppDispatch } from './redux/hooks';
+import { ScheduleData } from './util/types';
 
 
 const fetchSchedule = async function(classId: string) : Promise<ScheduleData> {
     let dataUrl = process.env['REACT_APP_SCHEDULE_DATA_URL'];
     let url = new URL(`./${classId}.json`, dataUrl).href;
     let response = await fetch(url);
-    return await response.json() as ScheduleData;
+    return response.json();
 }
 
 

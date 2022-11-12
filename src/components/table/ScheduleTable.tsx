@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import React, { useEffect, useState } from 'react';
+import { useAppSelector } from '../../redux/hooks';
 
-import { SubjectCell, EmptySubjectCell } from './SubjectCell';
-import { apply, reset } from '../../redux/selectorSlice';
+import { SubjectCell } from './SubjectCell';
 
 import './ScheduleTable.css'
-import stringFallback from '../../util/stringFallback';
 
-const ScheduleTable : React.FC<{}> = () => {
+
+const ScheduleTable : React.FC = () => {
 
     const [ tableContent, setTableContent ] = useState<JSX.Element>();
     const scheduleDataState = useAppSelector((state) => state.scheduleData);
@@ -16,26 +15,34 @@ const ScheduleTable : React.FC<{}> = () => {
         if(tableContent) return;
 
         if(scheduleDataState.state === 'empty') return;
-        const { subjects, schedule } = scheduleDataState.data;
-        console.log(subjects, schedule)
+        const { schedule } = scheduleDataState.data;
 
-        let dotwRow = <tr>
-            { ['월', '화', '수', '목', '금'].map(dotw => <td className='dotw'>{ dotw }</td>) }
-        </tr>;
+        let dotwRow = <tr>{ 
+            ['일', '월', '화', '수', '목', '금', '토']
+                .map((dotwName, dotw) =>
+                    schedule[dotw] !== null ?
+                        <td key={ dotw } className='dotw'>{ dotwName }</td> :
+                        undefined
+                )
+                .filter(e => !!e)
+        }</tr>;
 
         let subjectRows : JSX.Element[] = [];
-        for(let y = 0; y < schedule[0].length; y++) {
-            let subjectRow = <tr>{
-                schedule.map((daySubjects, dotw) => {
-                    let subject = subjects[daySubjects[y]]; 
-                    if(subject === undefined) return <EmptySubjectCell />;
+        
+        let longest = 0;
+        for(let daySchedule of schedule) {
+            if(daySchedule === null) continue;
+            if(daySchedule.length > longest) longest = daySchedule.length;
+        }
 
-                    let { name, short_name } = subject;
-                    let displayName = stringFallback('', short_name, name);
-                    return <SubjectCell pos={{ dotw, y }} name={ displayName }/>
-                })
-            }</tr>
-            subjectRows.push(subjectRow);
+        for(let y = 0; y < longest; y++) {
+            subjectRows.push(<tr key={ y }>{
+                schedule.map((_, dotw) =>
+                    schedule[dotw] !== null ?
+                        <SubjectCell pos={{ dotw, y }} key={`${dotw},${y}`} /> :
+                        undefined
+                ).filter(e => !!e)
+            }</tr>);
         }
 
         setTableContent(<>{ dotwRow }{ subjectRows }</>)
@@ -43,7 +50,11 @@ const ScheduleTable : React.FC<{}> = () => {
     }, [ tableContent, scheduleDataState ]);
 
     return (
-        <table className="schedule-table">{ tableContent }</table>
+        <table className="schedule-table">
+            <tbody>
+                { tableContent }
+            </tbody>
+        </table>
     );
 };
 

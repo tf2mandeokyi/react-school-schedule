@@ -1,0 +1,38 @@
+.subject-message {
+    text-align: center;
+}
+
+.current-subject {
+    font-weight: 500;
+    margin-right: 6px;
+}
+
+@media screen and (min-width: 1500px) {
+    .subject-message { font-size: 50px; }
+    .current-subject { font-size: 70px; }
+    .subject-submessage { font-size: 30px; }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1499px) {
+    .subject-message { font-size: 30px; }
+    .current-subject { font-size: 50px; }
+    .subject-submessage { font-size: 20px; }
+}
+
+@media screen and (max-width: 1099px) {
+    .subject-message {
+        margin-top: 100px;
+    }
+
+    @media screen and (min-width: 700px) {
+        .subject-message { font-size: 50px; }
+        .current-subject { font-size: 70px; }
+        .subject-submessage { font-size: 30px; }
+    }
+    
+    @media screen and (max-width: 699px) {
+        .subject-message { font-size: 30px; }
+        .current-subject { font-size: 40px; }
+        .subject-submessage { font-size: 20px; }
+    }
+}

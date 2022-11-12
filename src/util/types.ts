@@ -1,26 +1,37 @@
 // Table related interfaces & types
 export interface Subject {
     name?: string;
-    short_name?: string;
+    shortName?: string;
     links: string[];
+    customDisplay?: (string[] | null)[];
 }
 
-export type TableData = string[][];
+export interface HyperlinkButton {
+    display: string;
+    color: string;
+
+    customDisplay?: string;
+
+    noLinkDisplay: string;
+    noLinkColor: string;
+}
+
+export type TableData = (string[] | null)[];
 
 export interface TimeLengthInfo {
-    morning_start: number;                  // => morningStart
-    morning_end: number;                    // => morningEnd
-    start: number;                          // => classStart
-    class: number;                          // => classDuration
-    break: number;                          // => breakDuration
-    lunch_time_index: number;               // => lunchIndex
-    lunch: number;                          // => lunchDuration
+    morningStart: number;
+    morningEnd: number;
+    classStart: number;
+    classDuration: number;
+    breakDuration: number;
+    lunchIndex: number;
+    lunchDuration: number;
 }
 
 export interface ScheduleData {
     subjects: { [x: string]: Subject; }
     schedule: TableData;
-    time_length: TimeLengthInfo;            // => timeInfo
+    timeLengthInfo: TimeLengthInfo;
 }
 
 export interface TablePosition {

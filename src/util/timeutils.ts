@@ -6,32 +6,29 @@ export function getHourMinute(date: Date) {
 }
 
 
-export function getCurrentTimeInformation(data: ScheduleData, now = new Date()) {
-    return {
-        index: getIndexFromTime(data, now),
-        dotw: now.getDay(),
-        hourMinute: getHourMinute(now)
-    }
-}
+export function getIndexFromHM(data: ScheduleData, currentHM: number) {
+    let { classDuration, breakDuration, lunchDuration, lunchIndex, classStart } = data.timeLengthInfo;
 
-
-export function getIndexFromTime(data: ScheduleData, now = new Date()) {
-    let { break: breakLength, class: classLength, lunch, lunch_time_index, start } = data.time_length;
-
-    let currentHM = getHourMinute(now) - start;
-    let lunchStart = lunch_time_index * (classLength + breakLength);
+    let hmSinceStart = currentHM - classStart;
+    let lunchStart = lunchIndex * (classDuration + breakDuration);
     let index = Math.floor(
-        (currentHM < (lunchStart + lunch) ? 
-            currentHM : 
-            currentHM - lunch) / (classLength + breakLength)
+        (hmSinceStart < (lunchStart + lunchDuration) ? 
+            hmSinceStart : 
+            hmSinceStart - lunchDuration
+        ) / (classDuration + breakDuration)
     );
     return index;
 }
 
 
-export function getClassStartingTime(data: ScheduleData, index: number) {
-    let { break: breakLength, class: classLength, lunch, lunch_time_index, start } = data.time_length;
+export function getIndexFromTime(data: ScheduleData, now = new Date()) {
+    return getIndexFromHM(data, getHourMinute(now));
+}
 
-    return start + breakLength + (classLength + breakLength) * index +
-        (index >= lunch_time_index ? lunch : 0);
+
+export function getClassStartingTime(data: ScheduleData, index: number) {
+    let { classDuration, breakDuration, lunchDuration, lunchIndex, classStart } = data.timeLengthInfo;
+
+    return classStart + breakDuration + (classDuration + breakDuration) * index +
+        (index >= lunchIndex ? lunchDuration : 0);
 }

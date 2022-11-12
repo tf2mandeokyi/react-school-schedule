@@ -5,7 +5,8 @@ import { toggle } from '../../redux/darkLightSlice';
 
 import './DarkLightSwitcher.css'
 
-const DarkLightSwitcher : React.FC<{}> = () => {
+
+const DarkLightSwitcher : React.FC = () => {
 
     const darkLightMode = useAppSelector((state) => state.darkLightMode.mode);
     const dispatch = useAppDispatch();

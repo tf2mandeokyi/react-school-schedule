@@ -16,20 +16,24 @@
     padding: 4px 0;
 }
 
-.subject {
-    text-align: center;
-    cursor: default;
-    cursor: pointer;
-}
-
-.subject-td {
+.subject-td, .empty-subject-td {
     padding: auto;
     font-size: 22px;
+    text-align: center;
+}
+.subject-td {
     cursor: pointer;
     transition: 0.1s;
 }
 .subject-td:hover {
     background: rgba(128, 128, 128, 0.2);
+}
+
+.subject-td.empty-subject {
+    transition: none;
+}
+.subject-td.empty-subject:hover {
+    background: transparent;
 }
 
 /* Subject highlights */
@@ -51,24 +55,15 @@
     font-weight: 900;
 }
 
-.current-subject {
-    font-weight: 500;
-}
-
 
 @media screen and (min-width: 1100px) {
     .schedule-table {
         float: right;
         margin-right: 40px;
     }
-
     .subject-td {
         width: 100px;
         height: 80px;
-    }
-
-    .current-subject {
-        font-size: 70px;
     }
 }
 

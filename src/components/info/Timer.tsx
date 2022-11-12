@@ -1,12 +1,13 @@
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 
-import { apply } from '../../redux/hourMinuteSlice';
+import { apply } from '../../redux/dateSlice';
 import { useAppDispatch } from '../../redux/hooks';
+import { getHourMinute } from '../../util/timeutils';
 
 import './Timer.css'
 
 
-const Timer : React.FC<{}> = () => {
+const Timer : React.FC = () => {
 
     const loopIdRef = useRef<NodeJS.Timer>();
     const prevMinuteRef = useRef<number>(-1);
@@ -30,14 +31,14 @@ const Timer : React.FC<{}> = () => {
 
     const refreshEveryMinute = useCallback((date: Date) => {
         if(date.getMinutes() !== prevMinuteRef.current) {
-            dispatch(apply(date));
+            dispatch(apply({ hm: getHourMinute(date), dotw: date.getDay() }));
             prevMinuteRef.current = date.getMinutes();
         }
     }, [ dispatch ]);
 
 
     const loop = useCallback(() => {
-        let now = new Date(new Date().getTime() * 1);
+        let now = new Date(new Date().getTime() * 2000);
         updateTimerText(now);
         refreshEveryMinute(now);
     }, [ updateTimerText, refreshEveryMinute ])
@@ -45,7 +46,7 @@ const Timer : React.FC<{}> = () => {
 
     useEffect(() => {
         loop();
-        loopIdRef.current = setInterval(loop, 1000);
+        loopIdRef.current = setInterval(loop, 10);
         return () => clearInterval(loopIdRef.current);
     }, [ loop ])
 

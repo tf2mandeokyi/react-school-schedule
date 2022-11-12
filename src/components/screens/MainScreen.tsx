@@ -1,16 +1,31 @@
 import React from 'react';
-import CurrentInfoWrapper from '../info/CurrentInfoWrapper';
-import TableWrapper from '../table/TableWrapper';
+import GoBackButton from '../button/GoBackButton';
+
+import HyperlinkButtons from '../button/HyperlinkButtons';
+import DarkLightSwitcher from '../info/DarkLightSwitcher';
+import SubjectMessage from '../info/SubjectMessage';
+import Timer from '../info/Timer';
+import ScheduleTable from '../table/ScheduleTable';
 
 import './MainScreen.css'
 
-const MainScreen : React.FC<{}> = () => {
-    return (
+const MainScreen : React.FC = () => {
+    return (<>
         <div className="main">
-            <TableWrapper />
-            <CurrentInfoWrapper />
+            <div className="table-wrapper">
+                <ScheduleTable />
+            </div>
+            <div className="info-wrapper">
+                <Timer />
+                <GoBackButton />
+                <SubjectMessage />
+                <HyperlinkButtons />
+            </div>
         </div>
-    );
+        <div className="other-buttons-wrapper">
+            <DarkLightSwitcher />
+        </div>
+    </>);
 };
 
 export default MainScreen;

@@ -1,13 +1,10 @@
 import React from 'react';
+import HyperlinkButton from './HyperlinkButton';
 
-interface HyperlinkButtonsProp {
-    children: React.ReactNode
-}
-
-const HyperlinkButtons : React.FC<HyperlinkButtonsProp> = (props) => {
+const HyperlinkButtons : React.FC = () => {
     return (
         <div className="hyperlink-buttons">
-            { props.children }
+            <HyperlinkButton />
         </div>
     );
 };
