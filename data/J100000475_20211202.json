@@ -113,7 +113,7 @@
             "links": [ 
                 "https://rang.edunet.net/class/G001598746/index.do", null
             ],
-            "customDisplay": [
+            "displayArgs": [
                 [ "2-1" ], null
             ]
         }
