@@ -1,0 +1,139 @@
+{
+    "buttons": [
+        {
+            "display": "위두랑으로 가기",
+            "customDisplay": "{0} 위두랑으로 가기",
+            "color": "#0c9c5a"
+        },
+        {
+            "display": "Zoom 회의 접속하기",
+            "color": "rgb(45, 140, 255)",
+            "noLinkDisplay": "고정된 Zoom 링크가 없습니다",
+            "noLinkColor": "rgba(45, 140, 255, 0.6)"
+        }
+    ],
+    "subjects": {
+        "": {"name": null},
+        "morning": {
+            "name": "아침조회",
+            "links": [ null, null ]
+        },
+        "math_ii": {
+            "name": "수학 II",
+            "links": [ 
+                "https://rang.edunet.net/class/G001596720/index.do", null
+            ]
+        },
+        "career": {
+            "name": "진로",
+            "links": [ 
+                "https://rang.edunet.net/class/G001615169/index.do", null
+            ]
+        },
+        "physics_i": {
+            "name": "물리학 I",
+            "links": [ 
+                "https://rang.edunet.net/class/G001597851/index.do", null
+            ]
+        },
+        "chemistry_i": {
+            "name": "화학 I",
+            "links": [ 
+                "https://rang.edunet.net/class/G001596672/index.do", null
+            ]
+        },
+        "biology_i": {
+            "name": "생명과학 I",
+            "links": [ 
+                "https://rang.edunet.net/class/G001597070/index.do", null
+            ]
+        },
+        "geology_i": {
+            "name": "지구과학 I",
+            "links": [ 
+                "https://rang.edunet.net/class/G001574090/index.do", null
+            ]
+        },
+        "science_fusion": {
+            "name": "과학융합",
+            "links": [ 
+                "https://rang.edunet.net/class/G001596705/index.do", null
+            ]
+        },
+        "science_assignment": {
+            "name": "과제연구",
+            "links": [ 
+                "https://rang.edunet.net/class/G001596689/index.do", null
+            ]
+        },
+        "coding_science": {
+            "name": "정보과학",
+            "links": [ 
+                "https://rang.edunet.net/class/G001582206/index.do", null
+            ]
+        },
+        "english_ii": {
+            "name": "영어 II",
+            "links": [ 
+                "https://rang.edunet.net/class/G001596702/index.do", null
+            ]
+        },
+        "japanese_i": {
+            "name": "일본어 I",
+            "links": [ 
+                "https://rang.edunet.net/class/G001605668/index.do", null
+            ]
+        },
+        "japanese_culture": {
+            "name": "일본문화",
+            "links": [ 
+                "https://rang.edunet.net/class/G001605668/index.do", null
+            ]
+        },
+        "language_media": {
+            "name": "언어&매체",
+            "links": [ 
+                "https://rang.edunet.net/class/G001597055/index.do", null
+            ]
+        },
+        "music": {
+            "name": "음악",
+            "links": [ 
+                "https://rang.edunet.net/class/G001596468/index.do", null
+            ]
+        },
+        "sports": {
+            "name": "스포츠",
+            "links": [ 
+                "https://rang.edunet.net/class/G000340838/index.do", null
+            ]
+        },
+        "etc": {
+            "name": "창체",
+            "links": [ 
+                "https://rang.edunet.net/class/G001598746/index.do", null
+            ],
+            "customDisplay": [
+                [ "2-1" ], null
+            ]
+        }
+    },
+    "schedule": [
+        null,
+        ["geology_i", "language_media", "music", "math_ii", "japanese_i", "english_ii", "physics_i"],
+        ["english_ii", "language_media", "coding_science", "math_ii", "sports", "japanese_i", "chemistry_i"],
+        ["music", "career", "science_fusion", "science_assignment", "math_ii", "biology_i"],
+        ["physics_i", "japanese_culture", "math_ii", "english_ii", "geology_i", "biology_i", "language_media"],
+        ["coding_science", "language_media", "english_ii", "chemistry_i", "etc", "etc", "etc"],
+        null
+    ],
+    "timeLengthInfo": {
+        "morningStart": 520,
+        "morningEnd": 530,
+        "classStart": 530,
+        "classDuration": 50,
+        "breakDuration": 10,
+        "lunchIndex": 4,
+        "lunchDuration": 50
+    }
+}
