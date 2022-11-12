@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import { useAppSelector, useAppDispatch } from '../../hooks';
 
 import { toggle } from '../../redux/darkLightSlice';
 

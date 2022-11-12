@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { apply } from '../../redux/selectorSlice';
 import { TablePosition } from '../../util/types';
 import positionEquals from "../../util/positionEquals";
 import { getClassStartingTime } from '../../util/timeutils';
-import stringFallback from '../../util/stringFallback';
 
 
 interface SubjectCellProps {
@@ -58,7 +57,7 @@ const SubjectCell : React.FC<SubjectCellProps> = (props) => {
         })
 
         let { name, shortName } = subject;
-        let displayName = stringFallback('', shortName, name);
+        let displayName = shortName ?? name ?? '';
         setDisplayName(displayName);
     }, [ scheduleData, dotw, y ]);
 

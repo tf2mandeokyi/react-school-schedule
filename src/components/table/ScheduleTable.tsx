@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppSelector } from '../../hooks';
 
 import { SubjectCell } from './SubjectCell';
 

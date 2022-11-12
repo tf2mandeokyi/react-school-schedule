@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { reset } from '../../redux/selectorSlice';
 
 import './GoBackButton.css'

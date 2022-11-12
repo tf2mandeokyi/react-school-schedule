@@ -2,13 +2,17 @@
     text-align: center;
 }
 
+.subject-message div {
+    display: inline block;
+}
+
 .current-subject {
     font-weight: 500;
     margin-right: 6px;
 }
 
 @media screen and (min-width: 1500px) {
-    .subject-message { font-size: 50px; }
+    .subject-message { font-size: 40px; }
     .current-subject { font-size: 70px; }
     .subject-submessage { font-size: 30px; }
 }
@@ -25,7 +29,7 @@
     }
 
     @media screen and (min-width: 700px) {
-        .subject-message { font-size: 50px; }
+        .subject-message { font-size: 40px; }
         .current-subject { font-size: 70px; }
         .subject-submessage { font-size: 30px; }
     }

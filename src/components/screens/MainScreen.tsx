@@ -9,6 +9,7 @@ import ScheduleTable from '../table/ScheduleTable';
 
 import './MainScreen.css'
 
+
 const MainScreen : React.FC = () => {
     return (<>
         <div className="main">
@@ -18,8 +19,10 @@ const MainScreen : React.FC = () => {
             <div className="info-wrapper">
                 <Timer />
                 <GoBackButton />
-                <SubjectMessage />
-                <HyperlinkButtons />
+                <div className="message-wrapper">
+                    <SubjectMessage /><br/>
+                    <HyperlinkButtons />
+                </div>
             </div>
         </div>
         <div className="other-buttons-wrapper">

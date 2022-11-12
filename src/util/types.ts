@@ -3,7 +3,7 @@ export interface Subject {
     name?: string;
     shortName?: string;
     links: string[];
-    customDisplay?: (string[] | null)[];
+    displayArgs?: (string[] | null)[];
 }
 
 export interface HyperlinkButton {
@@ -29,7 +29,8 @@ export interface TimeLengthInfo {
 }
 
 export interface ScheduleData {
-    subjects: { [x: string]: Subject; }
+    buttons: HyperlinkButton[];
+    subjects: { [x: string]: Subject; };
     schedule: TableData;
     timeLengthInfo: TimeLengthInfo;
 }

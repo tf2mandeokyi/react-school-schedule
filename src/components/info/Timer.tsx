@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 
 import { apply } from '../../redux/dateSlice';
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch } from '../../hooks';
 import { getHourMinute } from '../../util/timeutils';
 
 import './Timer.css'
@@ -38,7 +38,7 @@ const Timer : React.FC = () => {
 
 
     const loop = useCallback(() => {
-        let now = new Date(new Date().getTime() * 2000);
+        let now = new Date();
         updateTimerText(now);
         refreshEveryMinute(now);
     }, [ updateTimerText, refreshEveryMinute ])

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { reset } from '../../redux/selectorSlice';
 import { getClassStartingTime, getIndexFromHM } from '../../util/timeutils';
 import { ScheduleData } from '../../util/types';
@@ -10,9 +10,11 @@ import './SubjectMessage.css'
 
 const timeLeftDisplay = function(name: string, hmLeft: number) : JSX.Element {
     return <>
-        선택한 과목 <span className="current-subject">{name}</span>까지
-        {Math.floor(hmLeft / 60) === 0 ? '' : Math.floor(hmLeft / 60) + '시간 '}
-        {hmLeft % 60 === 0 ? '' : hmLeft % 60 + '분 '}남았습니다.
+        <div>선택한 과목 <span className="current-subject">{name}</span>까지</div>
+        <div>
+            {Math.floor(hmLeft / 60) === 0 ? '' : Math.floor(hmLeft / 60) + '시간 '}
+            {hmLeft % 60 === 0 ? '' : hmLeft % 60 + '분 '}남았습니다.
+        </div>
     </>
 }
 
@@ -57,8 +59,8 @@ const SubjectMessage : React.FC = () => {
             }
             else if(selectorPos.y < currentIndex) {
                 return <>
-                    선택한 과목 <span className="current-subject">{subject.name}</span>
-                    까지 1주일 남았습니다.
+                    <div>선택한 과목 <span className="current-subject">{subject.name}</span>까지</div>
+                    <div>1주일 남았습니다.</div>
                 </>
             }
             else {
@@ -68,8 +70,8 @@ const SubjectMessage : React.FC = () => {
         else {
             let delta = (((selectorPos.dotw - currentDotw) % 7) + 7) % 7;
             return <>
-                선택한 과목 <span className="current-subject">{subject.name}</span>
-                까지 {delta}일 남았습니다.
+                <div>선택한 과목 <span className="current-subject">{subject.name}</span>까지</div>
+                <div>{delta}일 남았습니다.</div>
             </>
         }
     }, [ currentDotw, currentHM, selectorPos, dispatch ]);

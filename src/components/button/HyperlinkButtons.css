@@ -1,0 +1,19 @@
+.hyperlink-buttons {
+    text-align: center;
+}
+
+.hyperlink-button {
+    font-size: 26px;
+    border-radius: 20px;
+    padding: 14px 30px;
+    margin: 10px 30px;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+@media screen and (max-width: 699px) {
+    .hyperlink-button {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+}

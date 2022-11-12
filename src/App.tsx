@@ -5,7 +5,7 @@ import LoadingScreen from './components/screens/LoadingScreen';
 import MainScreen from './components/screens/MainScreen';
 import ErrorScreen from './components/screens/ErrorScreen';
 import { apply } from './redux/scheduleSlice';
-import { useAppDispatch } from './redux/hooks';
+import { useAppDispatch } from './hooks';
 import { ScheduleData } from './util/types';
 
 

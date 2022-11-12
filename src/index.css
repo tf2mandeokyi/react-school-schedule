@@ -30,7 +30,7 @@ html.dark-theme {
     background-color: rgb(41, 42, 42);
     color: white;
     font-weight: 300;
-    --a-button-color: #008cff;
+    --a-button-color: #36a5ff;
     --unavailable-color: rgba(255, 255, 255, 0.6);
     --dotw-seperator: #dddddd;
 }
