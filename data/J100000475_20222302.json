@@ -20,7 +20,7 @@
         },
         "speechWriting": {
             "name": "화법과 작문",
-            "shortName": "화법과 작문",
+            "shortName": "화작",
             "links": [ "https://rang.edunet.net/class/G001916641/index.do" ]
         },
         "english": {
@@ -30,7 +30,7 @@
         },
         "calculus": {
             "name": "미적분",
-            "shortName": "미적",
+            "shortName": "미적분",
             "links": [ "" ]
         },
         "geometry": {
