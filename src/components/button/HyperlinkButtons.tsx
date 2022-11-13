@@ -16,16 +16,16 @@ const HyperlinkButtons : React.FC = () => {
     const [ buttons, setButtons ] = useState<JSX.Element[]>();
 
 
-    const makeButtonsFromId = useCallback((subjectId: string | undefined) => {
+    const makeButtonsFromId = useCallback((subjectId: string[] | string | undefined) => {
         if(scheduleDataState.state === 'empty' || !subjectId) return [];
 
         let { buttons, subjects } = scheduleDataState.data;
-        let { links, displayArgs } = subjects[subjectId];
+        let { links, displayArgs } = subjects[Array.isArray(subjectId) ? subjectId[0] : subjectId]; // TODO add multi-subject
         
         return buttons.map(({ display, color, customDisplay, noLinkDisplay, noLinkColor }, i) => {
             let link = links[i];
 
-            if(link !== null) {
+            if(!!link && link !== null) {
                 if(customDisplay && displayArgs) {
                     const buttonDisplayArgs = displayArgs[i];
                     if(buttonDisplayArgs !== null) {

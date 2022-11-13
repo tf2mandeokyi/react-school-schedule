@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { apply } from '../../redux/selectorSlice';
@@ -27,7 +27,7 @@ const SubjectCell : React.FC<SubjectCellProps> = (props) => {
 
     const [ additionalClass, setAdditionalClass ] = useState<string>('');
     const [ empty, setEmpty ] = useState<boolean>(false);
-    const [ displayName, setDisplayName ] = useState<string>('');
+    const [ displayName, setDisplayName ] = useState<string | JSX.Element>('');
     const [ duration, setDuration ] = useState<CellDurationHM>();
 
 
@@ -36,16 +36,25 @@ const SubjectCell : React.FC<SubjectCellProps> = (props) => {
     }
 
 
+    const getSubjectDisplayName = useCallback((subjectId: string) => {
+        if(scheduleData.state === 'empty') return '';
+        let { subjects } = scheduleData.data;
+
+        let { name, shortName } = subjects[subjectId];
+        return shortName ?? name ?? '';
+    }, [ scheduleData ]);
+
+
     // Class duration + subject name calculation
     useEffect(() => {
         if(scheduleData.state === 'empty') return;
 
-        let { schedule, subjects, timeLengthInfo } = scheduleData.data;
+        let { schedule, timeLengthInfo } = scheduleData.data;
         let daySchedule = schedule[dotw];
         if(daySchedule === null) return;
 
-        let subject = subjects[daySchedule[y]]; 
-        if(subject === undefined) {
+        let subjectId = daySchedule[y];
+        if(!subjectId) {
             setEmpty(true);
             return;
         }
@@ -56,10 +65,13 @@ const SubjectCell : React.FC<SubjectCellProps> = (props) => {
             end: start + timeLengthInfo.classDuration
         })
 
-        let { name, shortName } = subject;
-        let displayName = shortName ?? name ?? '';
-        setDisplayName(displayName);
-    }, [ scheduleData, dotw, y ]);
+        if(Array.isArray(subjectId)) {
+            setDisplayName(<>{ subjectId.map(id => <>{ getSubjectDisplayName(id) }<br/></>) }</>);
+        }
+        else {
+            setDisplayName(getSubjectDisplayName(subjectId));
+        }
+    }, [ scheduleData, getSubjectDisplayName, dotw, y ]);
 
 
     // Color apply

@@ -7,6 +7,7 @@ import ErrorScreen from './components/screens/ErrorScreen';
 import { apply } from './redux/scheduleSlice';
 import { useAppDispatch } from './hooks';
 import { ScheduleData } from './util/types';
+import { checkDarkTheme } from './redux/darkLightSlice';
 
 
 const fetchSchedule = async function(classId: string) : Promise<ScheduleData> {
@@ -14,23 +15,6 @@ const fetchSchedule = async function(classId: string) : Promise<ScheduleData> {
     let url = new URL(`./${classId}.json`, dataUrl).href;
     let response = await fetch(url);
     return response.json();
-}
-
-
-const checkDarkTheme = function() {
-    let mode = localStorage.getItem('dark-light-mode');
-    if(mode === null) {
-        localStorage.setItem('dark-light-mode', 'dark');
-        mode = 'dark';
-    }
-
-    let { classList } = document.getElementsByTagName('html')[0];
-    if(mode === 'dark') {
-        classList.add('dark-theme');
-    }
-    else if(mode === 'light') {
-        classList.remove('dark-theme');
-    }
 }
 
 

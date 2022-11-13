@@ -6,6 +6,11 @@ import { toggle } from '../../redux/darkLightSlice';
 import './DarkLightSwitcher.css'
 
 
+const strings = {
+    'dark': [ '클릭하시면 밝은 모드로 전환됩니다.', 'moon' ],
+    'light': [ '클릭하시면 어두운 모드로 전환됩니다.', 'sun' ]
+} 
+
 const DarkLightSwitcher : React.FC = () => {
 
     const darkLightMode = useAppSelector((state) => state.darkLightMode.mode);
@@ -13,14 +18,10 @@ const DarkLightSwitcher : React.FC = () => {
 
     return (
         <div className="dark-light-switcher">
-            <span className="dark-light-tooltiptext">{
-                darkLightMode === 'dark' ?
-                '클릭하시면 밝은 모드로 전환됩니다.' : 
-                '클릭하시면 어두운 모드로 전환됩니다.'
-            }</span>
+            <span className="dark-light-tooltiptext">{ strings[darkLightMode][0] }</span>
             <span className="dark-light-button" onClick={ () => dispatch(toggle()) }>
                 <i 
-                    className={ `fas fa-${darkLightMode === 'dark' ? 'moon' : 'sun'}` }
+                    className={ `fas fa-${strings[darkLightMode][1]}` }
                     style={{ fontSize: '30px' }}
                 />
             </span>

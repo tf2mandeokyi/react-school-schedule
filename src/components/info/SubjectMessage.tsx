@@ -40,7 +40,8 @@ const SubjectMessage : React.FC = () => {
         if(daySchedule === null) return;
 
         let currentIndex = getIndexFromHM(data, currentHM);
-        let subject = subjects[daySchedule[selectorPos.y]];
+        let subjectId = daySchedule[selectorPos.y]
+        let subject = subjects[Array.isArray(subjectId) ? subjectId[0] : subjectId]; // TODO add multi-subject
 
         if(currentDotw === selectorPos.dotw) {
             if(currentIndex === selectorPos.y) {
@@ -125,7 +126,8 @@ const SubjectMessage : React.FC = () => {
                 </>
             }
 
-            let subject = subjects[todaySchedule[currentIndex]];
+            let subjectId = todaySchedule[currentIndex];
+            let subject = subjects[Array.isArray(subjectId) ? subjectId[0] : subjectId]; // TODO add multi-subject
             if(hmSinceStart % (classDuration + breakDuration) < breakDuration) { // Break time
                 return <>
                     지금은 <span className="current-subject">쉬는시간</span>입니다.<br/>

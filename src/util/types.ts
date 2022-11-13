@@ -2,7 +2,7 @@
 export interface Subject {
     name?: string;
     shortName?: string;
-    links: string[];
+    links: (string | null)[];
     displayArgs?: (string[] | null)[];
 }
 
@@ -16,7 +16,7 @@ export interface HyperlinkButton {
     noLinkColor: string;
 }
 
-export type TableData = (string[] | null)[];
+export type TableData = ((string | string[])[] | null)[];
 
 export interface TimeLengthInfo {
     morningStart: number;
