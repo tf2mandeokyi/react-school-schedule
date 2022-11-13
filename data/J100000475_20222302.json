@@ -20,7 +20,7 @@
         },
         "speechWriting": {
             "name": "화법과 작문",
-            "shortName": "화작",
+            "shortName": "화법과 작문",
             "links": [ "https://rang.edunet.net/class/G001916641/index.do" ]
         },
         "english": {
@@ -39,23 +39,23 @@
             "links": [ "" ]
         },
         "physicsII": {
-            "name": "물리Ⅱ",
-            "shortName": "물Ⅱ",
+            "name": "물리학Ⅱ",
+            "shortName": "물리Ⅱ",
             "links": [ "https://rang.edunet.net/class/G001916216/index.do" ]
         },
         "chemistryII": {
             "name": "화학Ⅱ",
-            "shortName": "화Ⅱ",
+            "shortName": "화학Ⅱ",
             "links": [ "https://rang.edunet.net/class/G001915161/index.do" ]
         },
         "biologyII": {
             "name": "생명과학Ⅱ",
-            "shortName": "생Ⅱ",
+            "shortName": "생명Ⅱ",
             "links": [ "https://rang.edunet.net/class/G001915665/index.do" ]
         },
         "geologyII": {
             "name": "지구과학Ⅱ",
-            "shortName": "지Ⅱ",
+            "shortName": "지구Ⅱ",
             "links": [ "https://rang.edunet.net/class/G001916403/index.do" ]
         },
         "socialResearch": {
@@ -76,7 +76,7 @@
         "art": {
             "name": "미술 감상과 비평",
             "shortName": "미감",
-            "links": [ "" ]
+            "links": [ "https://rang.edunet.net/class/G001914959/index.do" ]
         },
         "sports": {
             "name": "운동과 건강",
