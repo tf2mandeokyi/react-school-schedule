@@ -1,0 +1,110 @@
+{
+    "buttons": [
+        {
+            "display": "위두랑으로 가기",
+            "customDisplay": "{0} 위두랑으로 가기",
+            "color": "#0c9c5a",
+            "noLinkDisplay": "링크를 찾을 수 없습니다",
+            "noLinkColor": "#0c9c5a"
+        },
+        {
+            "display": "Zoom 회의 접속하기",
+            "color": "rgb(45, 140, 255)"
+        }
+    ],
+    "subjects": {
+        "": {"name": null},
+        "morning": {
+            "name": "아침조회",
+            "links": [ "https://rang.edunet.net/class/G001918058/index.do" ]
+        },
+        "speechWriting": {
+            "name": "화법과 작문",
+            "shortName": "화작",
+            "links": [ "https://rang.edunet.net/class/G001916641/index.do" ]
+        },
+        "english": {
+            "name": "영어 독해와 작문",
+            "shortName": "영독",
+            "links": [ "https://rang.edunet.net/class/G001916659/index.do" ]
+        },
+        "calculus": {
+            "name": "미적분",
+            "shortName": "미적",
+            "links": [ "" ]
+        },
+        "geometry": {
+            "name": "기하",
+            "shortName": "기하",
+            "links": [ "" ]
+        },
+        "physicsII": {
+            "name": "물리Ⅱ",
+            "shortName": "물Ⅱ",
+            "links": [ "https://rang.edunet.net/class/G001916216/index.do" ]
+        },
+        "chemistryII": {
+            "name": "화학Ⅱ",
+            "shortName": "화Ⅱ",
+            "links": [ "https://rang.edunet.net/class/G001915161/index.do" ]
+        },
+        "biologyII": {
+            "name": "생명과학Ⅱ",
+            "shortName": "생Ⅱ",
+            "links": [ "https://rang.edunet.net/class/G001915665/index.do" ]
+        },
+        "geologyII": {
+            "name": "지구과학Ⅱ",
+            "shortName": "지Ⅱ",
+            "links": [ "https://rang.edunet.net/class/G001916403/index.do" ]
+        },
+        "socialResearch": {
+            "name": "사회 문제와 탐구",
+            "shortName": "사문탐",
+            "links": [ "https://rang.edunet.net/class/G002018045/index.do" ]
+        },
+        "career": {
+            "name": "진로",
+            "shortName": "진로",
+            "links": [ "" ]
+        },
+        "music": {
+            "name": "음악 감상과 비평",
+            "shortName": "음감",
+            "links": [ "https://rang.edunet.net/class/G001915118/index.do" ]
+        },
+        "art": {
+            "name": "미술 감상과 비평",
+            "shortName": "미감",
+            "links": [ "" ]
+        },
+        "sports": {
+            "name": "운동과 건강",
+            "shortName": "운건",
+            "links": [ "https://rang.edunet.net/class/G000340838/index.do" ]
+        },
+        "etc": {
+            "name": "창체",
+            "links": [ "https://rang.edunet.net/class/G001918058/index.do" ],
+            "displayArgs": [ [ "3-2" ], null ]
+        }
+    },
+    "schedule": [
+        null,
+        [ "speechWriting", "sports", "chemistryII", "physicsII", "calculus", "geometry", "socialResearch" ],
+        [ "calculus", "biologyII", "physicsII", "english", "chemistryII", "speechWriting", "geologyII" ],
+        [ "english", "sports", "geometry", "biologyII", "geologyII", "career" ],
+        [ "english", "speechWriting", "calculus", "geologyII", "chemistryII", [ "music", "art" ], "geometry" ],
+        [ "speechWriting", "physicsII", "socialResearch", "biologyII", "etc", "etc", "etc" ],
+        null
+    ],
+    "timeLengthInfo": {
+        "morningStart": 520,
+        "morningEnd": 530,
+        "classStart": 530,
+        "classDuration": 50,
+        "breakDuration": 10,
+        "lunchIndex": 3,
+        "lunchDuration": 50
+    }
+}
